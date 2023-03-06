@@ -1,0 +1,54 @@
+---
+title: "v1 Engine"
+openapi: "POST /v1/engine"
+sidebarTitle: "Template Engine"
+---
+
+Creates a new Engine instance from a template.
+
+The Engine instance is created from the template specified by the `key` parameter, and all template parameters are passed
+through to the `params` key. 
+
+## Body
+
+<ParamField body="key" type="string">
+    The key of the template to execute.
+</ParamField>
+
+<ParamField body="params" type="JSON">
+    The parameters to pass to the template.
+</ParamField>
+
+
+### Response
+
+The returned response will be a JSON response with the result.
+
+<ResponseField name="result" type="JSON">
+    The result of the template execution.
+</ResponseField>
+
+<RequestExample>
+
+```bash
+curl -X 'POST' \
+  'https://llmx.v1.gexapi.com/v1/engine' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "key": "lcx|chains|hello-world|chain",
+    "params": {
+        "topic": "Reward design in reinforcement learning (RL) is challenging since specifying human notions of desired behavior may be difficult via reward functions or require many expert demonstrations. Can we instead cheaply design rewards using a natural language interface? This paper explores how to simplify reward design by prompting a large language model (LLM) such as GPT-3 as a proxy reward function, where the user provides a textual prompt containing a few examples (few-shot) or a description (zero-shot) of the desired behavior."
+    }
+}'
+```
+</RequestExample>
+
+
+<ResponseExample>
+```json
+{
+  "result": "\n\nQ: What did the Reinforcement Learning engineer say when asked to come up with a reward function?\n\nA: \"GPT it be!\""
+}
+```
+</ResponseExample>

@@ -1,0 +1,122 @@
+---
+title: "Authentication"
+sidebarTitle: "Authentication API"
+openapi: "GET /authenticate"
+description: "LLMX Server Authentication API"
+---
+
+Each server environment (prod, staging, dev) handles it's own user database and has it's own
+API Key hash. This means that a user's API Key is different for each environment.
+
+LLMX Server Accepts 3 Types of Passthrough Authentication Methods.
+- `Auth0 JWT Token`
+- `API Key`
+- `Token Query Parameter`
+
+The first is using `Authorization` set by `Auth0` to pass the JWT Token about the user's identity.
+
+```bash
+'Authorization': 'Bearer <auth0_token>'
+```
+
+The second is using `x-api-key` in the header to pass the user's associated API Key. 
+
+```bash
+'x-api-key': 'llmx_<server_env>_<token>'
+```
+
+The third is using `token` as a query parameter to pass the user's associated API Key.
+
+```bash
+'?token=llmx_<server_env>_<token>'
+```
+
+For Frontend applications, once the user has authenticated, you don't need to pass the user's associated API Key
+
+### Header
+
+<ParamField header="Authorization" type="string">
+    This is the Auth0 JWT Token for the user.
+</ParamField>
+
+<ParamField header="x-api-key" type="string">
+  This is the API Key for the user. It is a combination of the server environment, and the user's token.
+</ParamField>
+
+
+### Query Parameters
+
+<ParamField query="token" type="string">
+  This is the API Key for the user. It is a combination of the server environment, and the user's token.
+</ParamField>
+
+<ParamField query="redirect_url" type="string">
+    This is the URL to redirect the user to after authentication.
+    If this is not set, the user will be redirected the `api-key`.
+</ParamField>
+
+
+### Response
+
+The returned response will either be a redirect to the `redirect_url` or a JSON response with the user's API Key.
+
+<ResponseField name="key" type="string">
+    This is the API Key for the user.
+</ResponseField>
+
+<RequestExample>
+
+```bash Auth0
+curl --location \
+--request GET \
+'https://llmx.v1.gexapi.com/authenticate' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer <auth0_token>'
+```
+
+
+```bash token
+curl --location \
+--request GET \
+'https://llmx.v1.gexapi.com/authenticate?token=<token>' \
+--header 'Content-Type: application/json'
+```
+
+
+```bash x-api-key
+curl --location \
+--request GET \
+'https://llmx.v1.gexapi.com/authenticate' \
+--header 'Content-Type: application/json'
+--header 'x-api-key: <user_api_key>'
+```
+
+</RequestExample>
+
+<ResponseExample>
+```json API Key Response
+{
+  "key": "llmx_p_<token>"
+}
+```
+```json Redirect Response
+null
+```
+
+</ResponseExample>
+
+## [Get User Data](/api-reference/users/user-data)
+
+After a user has authenticated, you can use the API Key to get the user's data.
+
+View the [User Data](/api-reference/users/user-data) API Reference for more information.
+
+
+
+
+
+
+
+
+
+

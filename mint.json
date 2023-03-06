@@ -1,0 +1,104 @@
+{
+    "$schema": "https://mintlify.com/schema.json",
+    "name": "LangChainX Server",
+    "logo": {
+        "dark": "/logo/dark-v2.png",
+        "light": "/logo/light-v2.png",
+        "href": "https://docs.llmx.v1.gexapi.com"
+    },
+    "api": {
+        "hidePlayground": false,
+        "auth": {
+            "name": "x-api-key"
+        },
+        "baseUrl": "https://llmx.v1.gexapi.com"
+    },
+    "openApi": "https://llmx.v1.gexapi.com/openapi.json",
+    "favicon": "/favicon.png",
+    "colors": {
+        "primary": "#0A3B71",
+        "light": "#4D9CFF",
+        "dark": "#0050B4"
+    },
+    "topbarLinks": [
+        {
+            "name": "Github",
+            "url": "https://github.com/GrowthEngineAI/llm-server"
+        }
+    ],
+    "topbarCtaButton": {
+        "name": "Authenticate",
+        "url": "https://llmx.v1.gexapi.com/authenticate?redirect_url=https://docs.llmx.v1.gexapi.com"
+    },
+    "anchors": [
+        {
+            "name": "API Reference",
+            "icon": "rectangle-terminal",
+            "url": "api-reference"
+        },
+        {
+            "name": "Template Hub",
+            "icon": "folders",
+            "url": "https://github.com/GrowthEngineAI/llmx-hub"
+        }
+    ],
+    "navigation": [
+        {
+            "group": "General",
+            "pages": [
+                "general/introduction",
+                "general/auth",
+                "general/templates",
+                "general/hub",
+                "sdk/overview"
+            ]
+        },
+        {
+            "group": "API Reference",
+            "pages": [
+                {
+                    "group": "Auth",
+                    "pages": [
+                        "api-reference/auth/api-auth",
+                        "api-reference/auth/api-key"
+                    ]
+                },
+                {
+                    "group": "Engine",
+                    "pages": [
+                        "api-reference/engine/v1-engine",
+                        "api-reference/engine/v1-chains",
+                        "api-reference/engine/v1-llms"
+                    ]
+                },
+                {
+                    "group": "Templates",
+                    "pages": [
+                        "api-reference/templates/v1-get-chains",
+                        "api-reference/templates/v1-get-prompts",
+                        "api-reference/templates/v1-read-chain",
+                        "api-reference/templates/v1-read-prompt",
+                        "api-reference/templates/v1-render-chain",
+                        "api-reference/templates/v1-render-prompt"
+                    ]
+                },
+                {
+                    "group": "Users",
+                    "pages": [
+                      "api-reference/users/user-data"
+                    ]
+                }
+            ]
+        },
+        {
+            "group": "Quick API Reference",
+            "pages": [
+                "api-reference/auth/api-auth",
+                "api-reference/engine/v1-engine"
+            ]
+        }
+    ],
+    "footerSocials": {
+        "github": "https://github.com/GrowthEngineAI"
+    }
+}

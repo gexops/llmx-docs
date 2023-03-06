@@ -1,0 +1,56 @@
+---
+title: "Templates"
+openapi: "GET /v1/templates/all"
+description: "LLMX Templates"
+---
+
+# LangChain Templates
+
+Our templates are a great way to get started with the LangChainX API. They are a set of pre-defined 
+parameters that can be used to create a prompt result.
+
+Our templates are integrated directly with our Langchain Hub, providing extreme flexibility in
+modifying, testing, and iterating through various providers, and refining the prompts.
+
+There are currently `3` supported template types, with future support on the horizon:
+
+- `prompts`
+- `llms`
+- `chains`
+
+## Prompts
+
+Language models take text as input - that text is commonly referred to as a prompt. 
+Typically this is not simply a hardcoded string but rather a combination of a template, 
+some examples, and user input. LangChain provides several classes and functions to make 
+constructing and working with prompts easy.
+
+Our templates inherit from the base `LangChain` prompt classes, but provide a few additional sets of APIs 
+that extend their featureset, such as being able to save them to our LangChain Hub.
+
+- [Reference to the source documentation](https://langchain.readthedocs.io/en/latest/modules/prompts.html)
+
+
+## LLMS
+
+Large Language Models (LLMs) are a core component of LangChain. LangChain is not a provider of LLMs, but rather provides a standard interface 
+through which you can interact with a variety of LLMs.
+
+Our templates inherit from the base `LangChain` LLM classes, but provide a few additional sets of APIs, 
+mainly to interact with our LLMX Server for logging and callbacks so that you can view the results of your
+LLM requests.
+
+- [Reference to the source documentation](https://langchain.readthedocs.io/en/latest/modules/llms.html)
+
+## Chains
+
+Using an LLM in isolation is fine for some simple applications, but many more complex ones require chaining LLMs - 
+either with each other or with other experts. LangChain provides a standard interface for Chains, as well as some 
+common implementations of chains for ease of use.
+
+Our templates inherit from the base `LangChain` Chain classes, but provide a few additional sets of APIs,
+mainly to interact with our LLMX Server for logging and callbacks so that you can view the results of your
+LLM requests.
+
+- [Reference to the source documentation](https://langchain.readthedocs.io/en/latest/modules/chains.html)
+

@@ -1,0 +1,24 @@
+cache*
+*.DS_Store
+__pycache__*
+*logs
+*dist
+*build
+*dist
+build.sh
+*.egg-info*
+*.vscode
+*test_ops
+llmx/assets/data/*
+tests/private_*
+!tests/
+templates/tests/*
+llmx-*/**
+llm-server.code-workspace
+*.ipynb
+MANIFEST
+!llmx/io/cache.py
+llmx/_wip
+.sourcery.yaml
+llmx/lib/app*
+llmx/assets/configs/nginx.local copy.conf

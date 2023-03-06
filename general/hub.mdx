@@ -1,0 +1,38 @@
+---
+title: LangChain Hub Repo
+sidebarTitle: Hub Repository
+description: A Collection of Langchain Templates
+openapi: 'GET /v1/templates/key'
+---
+
+# LangChain Private and Public Hubs
+
+LangChainHub is collection of all artifacts useful for working with LangChain primitives such as 
+prompts, chains and agents. The goal of this repository is to be a central resource for sharing 
+and discovering high quality prompts, chains and agents that combine together to form complex LLM 
+applications.
+
+# Public Hub
+  
+  Prefix: `lc`
+
+The public hub utilizes the collection of templates from the original [LangChainHub](https://github.com/hwchase17/langchain-hub)
+repository. As we do not control access to these templates, read-only access to the templates is available, but
+any changes to the templates cannot be persisted.
+
+Some Examples:
+
+- `lc|chains|hello-world|chain`: [Hello World Chain](https://github.com/hwchase17/langchain-hub/tree/main/chains/hello-world)
+- `lc|chains|summarize|stuff|chain`: [Summarize Chain](https://github.com/hwchase17/langchain-hub/blob/main/chains/summarize/stuff)
+
+# Private Hub
+
+  Prefix: `lcx`
+
+The private hub is a collection of templates that are owned by our team at [llmx-hub](https://github.com/GrowthEngineAI/llmx-hub). 
+This allows us to make changes to the templates and persist them to the hub. This is useful for testing and development purposes.
+
+Some Examples:
+
+- `lcx|chains|hello-world|chain`: [Hello World Chain](https://github.com/GrowthEngineAI/llmx-hub/tree/main/chains/hello-world)
+- `lcx|prompts|bizdev|rfp|audit_plan`: [Audit Plan Prompt](https://github.com/GrowthEngineAI/llmx-hub/blob/main/prompts/bizdev/rfp/audit_plan.yaml)

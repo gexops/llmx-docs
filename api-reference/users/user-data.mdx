@@ -1,0 +1,321 @@
+---
+title: "User Data"
+openapi: "GET /users/data"
+---
+
+Retrieve the current user data for the authenticated user along with their session usage.
+
+This endpoint currently only accepts retrieving data for authenticated users, and not as a service account.
+
+
+### Response
+
+The returned response will be a JSON object containing the user data.
+
+<RequestExample>
+
+```bash Auth0
+curl --location \
+--request GET \
+'https://llmx.v1.gexapi.com/users/data' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer <auth0_token>'
+```
+
+
+```bash x-api-key
+curl --location \
+--request GET \
+'https://llmx.v1.gexapi.com/users/data' \
+--header 'Content-Type: application/json'
+--header 'x-api-key: <user_api_key>'
+```
+
+</RequestExample>
+
+
+
+<ResponseExample>
+```json User Data
+{
+    "email": "...@growthengineai.com",
+    "is_active": true,
+    "is_superuser": true,
+    "is_service_account": true,
+    "roles": null,
+    "data": null,
+    "id": 1,
+    "created_at": "2023-03-04T03:03:15.594812+00:00",
+    "updated_at": "2023-03-04T03:03:15.594818+00:00",
+    "sessions": [
+        {
+            "start_time": "2023-03-04T03:03:15.754971+00:00",
+            "created_at": "2023-03-04T03:02:25.169254+00:00",
+            "updated_at": "2023-03-04T03:02:25.169296+00:00",
+            "extra": null,
+            "name": "llmx",
+            "id": 1,
+            "owner_id": 1,
+            "child_feedback_items": [],
+            "child_llm_runs": [],
+            "child_chain_runs": [],
+            "child_tool_runs": []
+        },
+        {
+            "start_time": "2023-03-04T03:03:43.946738+00:00",
+            "created_at": "2023-03-04T03:02:25.169254+00:00",
+            "updated_at": "2023-03-04T03:02:25.169296+00:00",
+            "extra": {
+                "host": "llmx.v1.gexapi.com",
+                "referer": "https://llmx.v1.gexapi.com/docs"
+            },
+            "name": "llmx.v1.gexapi.com/docs",
+            "id": 2,
+            "owner_id": 1,
+            "child_feedback_items": [],
+            "child_llm_runs": [
+                {
+                    "start_time": "2023-03-04T03:03:48.422137+00:00",
+                    "end_time": "2023-03-04T03:03:49.861032+00:00",
+                    "created_at": "2023-03-04T03:03:49.875574+00:00",
+                    "updated_at": "2023-03-04T03:03:49.875579+00:00",
+                    "extra": {
+                        "metadata": {
+                            "prompts": [
+                                "Tell me a joke about Reward design in reinforcement learning (RL) is challenging since specifying human notions of desired behavior may be difficult via reward functions or require many expert demonstrations. Can we instead cheaply design rewards using a natural language interface? This paper explores how to simplify reward design by prompting a large language model (LLM) such as GPT-3 as a proxy reward function, where the user provides a textual prompt containing a few examples (few-shot) or a description (zero-shot) of the desired behavior.:"
+                            ],
+                            "disregard_cache": false
+                        },
+                        "handler_id": "<redacted>|llmx.v1.gexapi.com/docs"
+                    },
+                    "execution_order": 2,
+                    "serialized": {
+                        "name": "Hello World",
+                        "model": "text-davinci-003",
+                        "params": {
+                            "model_name": "text-davinci-003",
+                            "temperature": 0.9,
+                            "max_tokens": 256,
+                            "top_p": 1.0,
+                            "frequency_penalty": 0.0,
+                            "presence_penalty": 0.0,
+                            "n": 1,
+                            "best_of": 1,
+                            "request_timeout": null,
+                            "logit_bias": {}
+                        },
+                        "type": "openai",
+                        "provider_id": "openai/text-davinci-003",
+                        "handler_id": "<redacted>|llmx.v1.gexapi.com/docs",
+                        "x_api_key": "<redacted>",
+                        "template_path": "chains/hello-world/chain.json",
+                        "template_key": "hello_world",
+                        "repo_type": "langchain-hub",
+                        "author": {},
+                        "description": "Chain Template: Hello World"
+                    },
+                    "session_id": 2,
+                    "error": null,
+                    "parent_chain_run_id": 1,
+                    "parent_tool_run_id": null,
+                    "prompts": [
+                        "Tell me a joke about Reward design in reinforcement learning (RL) is challenging since specifying human notions of desired behavior may be difficult via reward functions or require many expert demonstrations. Can we instead cheaply design rewards using a natural language interface? This paper explores how to simplify reward design by prompting a large language model (LLM) such as GPT-3 as a proxy reward function, where the user provides a textual prompt containing a few examples (few-shot) or a description (zero-shot) of the desired behavior.:"
+                    ],
+                    "response": {
+                        "generations": [
+                            [
+                                {
+                                    "text": "\n\nQ: What do you get when you use a Natural Language Interface to design a Reward Function in RL?\nA: A GPT-3-ing experience!"
+                                }
+                            ]
+                        ],
+                        "llm_output": {
+                            "token_usage": {
+                                "prompt_tokens": 105,
+                                "total_tokens": 140,
+                                "completion_tokens": 35
+                            }
+                        }
+                    },
+                    "id": 1,
+                    "type": "llm"
+                }
+            ],
+            "child_chain_runs": [
+                {
+                    "child_runs": [
+                        {
+                            "start_time": "2023-03-04T03:03:48.422137+00:00",
+                            "end_time": "2023-03-04T03:03:49.861032+00:00",
+                            "created_at": "2023-03-04T03:03:49.875574+00:00",
+                            "updated_at": "2023-03-04T03:03:49.875579+00:00",
+                            "extra": {
+                                "metadata": {
+                                    "prompts": [
+                                        "Tell me a joke about Reward design in reinforcement learning (RL) is challenging since specifying human notions of desired behavior may be difficult via reward functions or require many expert demonstrations. Can we instead cheaply design rewards using a natural language interface? This paper explores how to simplify reward design by prompting a large language model (LLM) such as GPT-3 as a proxy reward function, where the user provides a textual prompt containing a few examples (few-shot) or a description (zero-shot) of the desired behavior.:"
+                                    ],
+                                    "disregard_cache": false
+                                },
+                                "handler_id": "<redacted>|llmx.v1.gexapi.com/docs"
+                            },
+                            "execution_order": 2,
+                            "serialized": {
+                                "name": "Hello World",
+                                "model": "text-davinci-003",
+                                "params": {
+                                    "model_name": "text-davinci-003",
+                                    "temperature": 0.9,
+                                    "max_tokens": 256,
+                                    "top_p": 1.0,
+                                    "frequency_penalty": 0.0,
+                                    "presence_penalty": 0.0,
+                                    "n": 1,
+                                    "best_of": 1,
+                                    "request_timeout": null,
+                                    "logit_bias": {}
+                                },
+                                "type": "openai",
+                                "provider_id": "openai/text-davinci-003",
+                                "handler_id": "<redacted>|llmx.v1.gexapi.com/docs",
+                                "x_api_key": "<redacted>",
+                                "template_path": "chains/hello-world/chain.json",
+                                "template_key": "hello_world",
+                                "repo_type": "langchain-hub",
+                                "author": {},
+                                "description": "Chain Template: Hello World"
+                            },
+                            "session_id": 2,
+                            "error": null,
+                            "parent_chain_run_id": 1,
+                            "parent_tool_run_id": null,
+                            "prompts": [
+                                "Tell me a joke about Reward design in reinforcement learning (RL) is challenging since specifying human notions of desired behavior may be difficult via reward functions or require many expert demonstrations. Can we instead cheaply design rewards using a natural language interface? This paper explores how to simplify reward design by prompting a large language model (LLM) such as GPT-3 as a proxy reward function, where the user provides a textual prompt containing a few examples (few-shot) or a description (zero-shot) of the desired behavior.:"
+                            ],
+                            "response": {
+                                "generations": [
+                                    [
+                                        {
+                                            "text": "\n\nQ: What do you get when you use a Natural Language Interface to design a Reward Function in RL?\nA: A GPT-3-ing experience!"
+                                        }
+                                    ]
+                                ],
+                                "llm_output": {
+                                    "token_usage": {
+                                        "prompt_tokens": 105,
+                                        "total_tokens": 140,
+                                        "completion_tokens": 35
+                                    }
+                                }
+                            },
+                            "id": 1,
+                            "type": "llm"
+                        }
+                    ],
+                    "start_time": "2023-03-04T03:03:48.421940+00:00",
+                    "end_time": "2023-03-04T03:03:49.861116+00:00",
+                    "created_at": "2023-03-04T03:03:49.871819+00:00",
+                    "updated_at": "2023-03-04T03:03:49.871825+00:00",
+                    "extra": {
+                        "metadata": {
+                            "prompt": {
+                                "input_variables": [
+                                    "topic"
+                                ],
+                                "output_parser": null,
+                                "partial_variables": {},
+                                "template": "Tell me a joke about {topic}:",
+                                "template_format": "f-string",
+                                "validate_template": true,
+                                "_type": "prompt"
+                            },
+                            "inputs": {
+                                "topic": "Reward design in reinforcement learning (RL) is challenging since specifying human notions of desired behavior may be difficult via reward functions or require many expert demonstrations. Can we instead cheaply design rewards using a natural language interface? This paper explores how to simplify reward design by prompting a large language model (LLM) such as GPT-3 as a proxy reward function, where the user provides a textual prompt containing a few examples (few-shot) or a description (zero-shot) of the desired behavior."
+                            },
+                            "targets": {
+                                "topic": "Reward design in reinforcement learning (RL) is challenging since specifying human notions of desired behavior may be difficult via reward functions or require many expert demonstrations. Can we instead cheaply design rewards using a natural language interface? This paper explores how to simplify reward design by prompting a large language model (LLM) such as GPT-3 as a proxy reward function, where the user provides a textual prompt containing a few examples (few-shot) or a description (zero-shot) of the desired behavior."
+                            }
+                        },
+                        "handler_id": "<redacted>|llmx.v1.gexapi.com/docs"
+                    },
+                    "execution_order": 1,
+                    "serialized": {
+                        "name": "Hello World",
+                        "model": "text-davinci-003",
+                        "params": {
+                            "model_name": "text-davinci-003",
+                            "temperature": 0.9,
+                            "max_tokens": 256,
+                            "top_p": 1.0,
+                            "frequency_penalty": 0.0,
+                            "presence_penalty": 0.0,
+                            "n": 1,
+                            "best_of": 1,
+                            "request_timeout": null,
+                            "logit_bias": {}
+                        },
+                        "type": "openai",
+                        "x_api_key": "<redacted>",
+                        "handler_id": "<redacted>|llmx.v1.gexapi.com/docs",
+                        "template_path": "chains/hello-world/chain.json",
+                        "template_key": "hello_world",
+                        "repo_type": "langchain-hub",
+                        "author": {},
+                        "description": "Chain Template: Hello World"
+                    },
+                    "session_id": 2,
+                    "error": null,
+                    "parent_chain_run_id": null,
+                    "parent_tool_run_id": null,
+                    "inputs": {
+                        "topic": "Reward design in reinforcement learning (RL) is challenging since specifying human notions of desired behavior may be difficult via reward functions or require many expert demonstrations. Can we instead cheaply design rewards using a natural language interface? This paper explores how to simplify reward design by prompting a large language model (LLM) such as GPT-3 as a proxy reward function, where the user provides a textual prompt containing a few examples (few-shot) or a description (zero-shot) of the desired behavior."
+                    },
+                    "outputs": {
+                        "text": "\n\nQ: What do you get when you use a Natural Language Interface to design a Reward Function in RL?\nA: A GPT-3-ing experience!"
+                    },
+                    "id": 1,
+                    "type": "chain"
+                }
+            ],
+            "child_tool_runs": []
+        }
+    ],
+    "metadata": {
+        "api_key": "llmx_p_<redacted>",
+        "auth0_user": {
+            "sub": "<redacted>",
+            "given_name": "Tri",
+            "family_name": "Nguyen",
+            "nickname": "ts",
+            "name": "Tri Nguyen",
+            "updated_at": "2023-03-04T03:03:14.119Z",
+            "email": "...@growthengineai.com",
+            "email_verified": true
+        },
+        "auth0_claims": {
+            "aud": [
+                "<redacted>",
+            ],
+            "azp": "<redacted>",
+            "exp": 1678046809,
+            "iat": 1677960409,
+            "iss": "<redacted>",
+            "gty": null,
+            "scope": [
+                "openid",
+                "profile",
+                "email",
+                "models"
+            ],
+            "sub": "<redacted>",
+        }
+    }
+}
+```
+
+</ResponseExample>
+
+
+
+
+
+
