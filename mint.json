@@ -13,7 +13,6 @@
         },
         "baseUrl": "https://llmx.v1.gexapi.com"
     },
-    "openApi": "https://llmx.v1.gexapi.com/openapi.json",
     "favicon": "/favicon.png",
     "colors": {
         "primary": "#0A3B71",
